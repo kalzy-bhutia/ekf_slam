@@ -1,4 +1,6 @@
-Code for ekf-slam for educational purposes. A part of the code is taken from a comprehensive github repository on robot algorithms [here](https://github.com/AtsushiSakai/PythonRobotics).
+[![Build Status](https://travis-ci.org/sanjaythakur/ekf_slam.svg?branch=master)](https://travis-ci.org/sanjaythakur/ekf_slam)
+
+This repository contains code for ekf-slam for educational purposes. A part of the code is taken from a comprehensive github repository on robot algorithms [here](https://github.com/AtsushiSakai/PythonRobotics).
 
 - SLAM
 SLAM stands for *Simultaneous Localization And Mapping*. It is a state-estimation problem problem where the state that has to be estimated is a joint of both the robot pose and the poses of all the landmarks together.
