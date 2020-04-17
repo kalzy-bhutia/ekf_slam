@@ -1,11 +1,14 @@
-Code for ekf-slam for educational purposes. A part of the code is taken from a comprehensive github repository on robot algorithms [here](https://github.com/AtsushiSakai/PythonRobotics).
+[![Build Status](https://travis-ci.org/sanjaythakur/ekf_slam.svg?branch=master)](https://travis-ci.org/sanjaythakur/ekf_slam)
 
-- Description of SLAM
-- Description of ekf-slam
-    - description
-    - As this repo is limited to not integrated with real hardware, we simulate generation of observations, and the movement of robot.
+This repository contains code for ekf-slam for educational purposes. A part of the code is taken from a comprehensive github repository on robot algorithms [here](https://github.com/AtsushiSakai/PythonRobotics).
+
+- SLAM
+SLAM stands for *Simultaneous Localization And Mapping*. It is a state-estimation problem problem where the state that has to be estimated is a joint of both the robot pose and the poses of all the landmarks together.
+- EKF-SLAM
+    - EKF-SLAM employs Extended Kalman Filter to estimate the unknown state of a state estimation problem. 
+    - As this repo is not meant to be integrated with a real hardware, we simulate generation of observations, and the movement of robot.
 - Toy problem description
-    - Robot pose has three dimensions
+    - This repository has an implementation of the EKF-SLAM.
     - Landmark pose has two dimensions
 - How to use
 Check simulation.ipynb
@@ -26,8 +29,3 @@ Check simulation.ipynb
     - RGBD --> range:good, bearing:good
     - ARVA --> range:bad, bearing:bad
     - RFIDAntenna --> range:bad, bearing:bad
-
-To do:
-- Write tests
-- CI + CI badge + Code Coverage badge 
-- Write readme
