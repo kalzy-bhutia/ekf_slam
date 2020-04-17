@@ -10,8 +10,8 @@ SLAM stands for *Simultaneous Localization And Mapping*. It is a state-estimatio
 - Toy problem description
     - This repository has an implementation of the EKF-SLAM.
     - Landmark pose has two dimensions
-- How to use
-Check simulation.ipynb
+- How to use:
+    - Check simulation.ipynb
 
 *Points to note*:
 - Note that anything *X* would be the state vector and *x* would be the robot pose.
