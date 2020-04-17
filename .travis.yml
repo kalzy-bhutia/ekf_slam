@@ -1,10 +1,54 @@
 language: python
-python:
-  - 3.5
-  - 3.6
-before_install:
-  - python --version
-  - pip install -U pip
-  - pip install -U pytest
-  #- pip install codecov
-script: pytest
+matrix:
+  include:
+  - python: 3.5
+    PARALLELIZE=false
+    before_install:
+      - python --version
+      - pip install -U pip
+      - pip install -U pytest
+    script: pytest
+  - python: 3.5
+    PARALLELIZE=true
+    before_install:
+      - python --version
+      - pip install -U pip
+      - pip install -U pytest
+    script: pytest
+  - python: 3.7
+    dist: xenial
+    before_install:
+      - python --version
+      - pip install -U pip
+      - pip install -U pytest
+    script: pytest
+  - allow_failures:
+    - name: "Generic Python 3.5 on macOS"
+      os: osx
+      language: shell  # 'language: python' is an error on Travis CI macOS
+      python: 3.5
+      before_install:
+        - python --version
+        - pip install -U pip
+        - pip install -U pytest
+      script: pytest
+    - name: "Python 3.6.5 on macOS 10.13"
+      os: osx
+      osx_image: xcode9.4  # Python 3.6.5 running on macOS 10.13
+      language: shell  # 'language: python' is an error on Travis CI macOS
+      before_install:
+        - python3 --version
+        - pip3 install -U pip
+        - pip3 install -U pytest
+        - pip3 install codecov
+      script: pytest
+    - name: "Python 3.5.4 on Windows"
+      os: windows           # Windows 10.0.17134 N/A Build 17134
+      language: shell       # 'language: python' is an error on Travis CI Windows
+      before_install:
+        - choco install python --version 3.5.4
+        - python --version
+        - python -m pip install --upgrade pip
+        - pip3 install --upgrade pytest
+      env: PATH=/c/Python35:/c/Python35/Scripts:$PATH
+      script: pytest
